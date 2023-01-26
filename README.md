@@ -155,7 +155,7 @@ Export the performance metrics of the page to the file path. The output is in
 [JSON Lines](#json-lines) format, and includes the `label`, `encodedBodySize`,
 `resourceLoadDuration` and `nextjsHydrationDuration`.
 
-- **This function is not supported in Webkit browsers.**
+- **[This function is not supported in Webkit browsers](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/encodedBodySize#browser_compatibility).**
 - Make sure to call the function right after loading the page to get correct results.
 - The `performance-metrics.jsonl` file has to be manually removed, e.g. before running the tests.
 - You can test the resulting export with the `yarn test-performance-metrics` CLI tool. See `--help`
