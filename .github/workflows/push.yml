@@ -30,7 +30,9 @@ jobs:
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: 'Install dependencies'
-        run: yarn install --frozen-lockfile
+        run: |
+          yarn install --frozen-lockfile
+          yarn playwright install --with-deps
 
       - name: 'Run tests'
         run: yarn test
