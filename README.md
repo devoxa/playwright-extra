@@ -175,7 +175,7 @@ tests, for example when waiting for an email that is sent out by a queue process
 ### Wait For Network Idle
 
 ```ts
-const options = { timeout: 10000, minIdleTime: 200 }
+const options = { timeout: 10000, minIdleTime: 200, debug: false }
 
 const waitForNetworkIdlePromise = waitForNetworkIdle(page, options?)
 // ... do things here ...
