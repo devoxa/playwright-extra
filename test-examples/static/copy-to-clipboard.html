@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <button onclick="copyToClipboard('Hello World')">Copy</button>
+
+    <script>
+      function copyToClipboard(text) {
+        const element = document.createElement('textarea')
+        element.value = text
+        document.body.appendChild(element)
+        element.focus()
+        element.select()
+        document.execCommand('copy')
+        document.body.removeChild(element)
+      }
+    </script>
+  </body>
+</html>

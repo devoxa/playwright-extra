@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <script>
+      function sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms))
+      }
+
+      async function main() {
+        await sleep(100)
+        document.body.innerHTML = '<h1>Done</h1>'
+      }
+
+      main()
+    </script>
+  </body>
+</html>

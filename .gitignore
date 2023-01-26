@@ -1,0 +1,16 @@
+# Compiled Output
+dist/
+
+# Tests
+test-results/
+playwright-report/
+test-tmp/
+performance-metrics.jsonl
+
+# Dependencies
+node_modules/
+yarn-debug.log*
+yarn-error.log*
+
+# Development Environments
+.history/

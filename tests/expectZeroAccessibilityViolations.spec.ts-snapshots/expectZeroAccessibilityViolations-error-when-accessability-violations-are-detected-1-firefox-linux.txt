@@ -1,0 +1,49 @@
+Failed due to accessibility violations
+
+(1) <html><head></head><body>
+    <h1>Hello World!</h1>
+    <h2>This is an example for testing.</h2>
+  
+
+</body></html>
+
+Fix any of the following:
+  Document does not have a non-empty <title> element
+
+--------------------------------------------------------------------------------
+
+(2) <html><head></head><body>
+    <h1>Hello World!</h1>
+    <h2>This is an example for testing.</h2>
+  
+
+</body></html>
+
+Fix any of the following:
+  The <html> element does not have a lang attribute
+
+--------------------------------------------------------------------------------
+
+(3) <html><head></head><body>
+    <h1>Hello World!</h1>
+    <h2>This is an example for testing.</h2>
+  
+
+</body></html>
+
+Fix all of the following:
+  Document does not have a main landmark
+
+--------------------------------------------------------------------------------
+
+(4) <h1>Hello World!</h1>
+
+Fix any of the following:
+  Some page content is not contained by landmarks
+
+--------------------------------------------------------------------------------
+
+(5) <h2>This is an example for testing.</h2>
+
+Fix any of the following:
+  Some page content is not contained by landmarks

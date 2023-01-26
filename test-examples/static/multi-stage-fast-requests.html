@@ -1,0 +1,28 @@
+<html>
+  <body>
+    <script>
+      function sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms))
+      }
+
+      async function main() {
+        for (let i = 0; i !== 10; i++) {
+          await fetch('/api/fast')
+          await sleep(100)
+        }
+
+        document.body.innerHTML = '<h1>Done 1</h1>'
+        await sleep(500)
+
+        for (let i = 0; i !== 10; i++) {
+          await fetch('/api/fast')
+          await sleep(100)
+        }
+
+        document.body.innerHTML = '<h1>Done 2</h1>'
+      }
+
+      main()
+    </script>
+  </body>
+</html>

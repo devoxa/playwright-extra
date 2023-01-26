@@ -1,0 +1,53 @@
+{
+  "name": "@devoxa/playwright-extra",
+  "description": "Extra utility functions for interacting with Playwright",
+  "version": "0.0.0",
+  "main": "dist/src/index.js",
+  "bin": {
+    "test-performance-metrics": "./dist/src/cli/test-performance-metrics.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/devoxa/playwright-extra"
+  },
+  "scripts": {
+    "test": "yarn test:type-check && yarn test:playwright",
+    "test:type-check": "tsc --noEmit",
+    "test:playwright": "sh clean.sh && playwright test",
+    "test:start-examples": "ts-node test-examples/index.ts",
+    "test:report": "playwright show-report --host 0.0.0.0",
+    "format": "prettier --ignore-path='.gitignore' --list-different --write .",
+    "format:check": "prettier --ignore-path='.gitignore' --check .",
+    "lint": "eslint --ignore-path='.gitignore' '{src,tests}/**/*.ts'",
+    "build": "rm -rf dist/ && tsc",
+    "preversion": "yarn build"
+  },
+  "eslintConfig": {
+    "extends": "@devoxa"
+  },
+  "prettier": "@devoxa/prettier-config",
+  "dependencies": {
+    "@devoxa/flocky": "1.4.0",
+    "commander": "10.0.0"
+  },
+  "peerDependencies": {
+    "axe-playwright": ">=1.1",
+    "@playwright/test": ">=1.29"
+  },
+  "devDependencies": {
+    "@devoxa/eslint-config": "3.0.5",
+    "@devoxa/prettier-config": "2.0.1",
+    "@playwright/test": "1.29.2",
+    "@types/express": "^4.17.16",
+    "@types/node": "18.11.18",
+    "axe-playwright": "1.1.12",
+    "eslint": "8.32.0",
+    "express": "^4.18.2",
+    "prettier": "2.8.3",
+    "ts-node": "10.9.1",
+    "typescript": "4.9.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
