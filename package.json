@@ -1,7 +1,7 @@
 {
   "name": "@devoxa/playwright-extra",
   "description": "Extra utility functions for interacting with Playwright",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "dist/src/index.js",
   "bin": {
     "test-performance-metrics": "./dist/src/cli/test-performance-metrics.js"
@@ -31,8 +31,8 @@
     "commander": "10.0.0"
   },
   "peerDependencies": {
-    "axe-playwright": ">=1.1",
-    "@playwright/test": ">=1.29"
+    "@playwright/test": ">=1.29",
+    "axe-playwright": ">=1.1"
   },
   "devDependencies": {
     "@devoxa/eslint-config": "3.0.7",
