@@ -4,7 +4,7 @@ import { expectToThrowError } from './helpers/expectToThrowError'
 
 const EXAMPLE_VALUE = 'foobar'
 
-test.describe('clipboard', () => {
+test.describe.serial('clipboard', () => {
   test('interact with the clipboard', async ({ page }) => {
     await page.goto('/copy-to-clipboard.html')
 
@@ -20,7 +20,7 @@ test.describe('clipboard', () => {
   test('interact with the clipboard via the page', async ({ page }) => {
     await page.goto('/copy-to-clipboard.html')
 
-    expect(await getClipboardValue(page)).toEqual('')
+    expect(await getClipboardValue(page)).toEqual(EXAMPLE_VALUE) // From the previous test
 
     await page.getByRole('button', { name: 'Copy' }).click()
 
