@@ -24,9 +24,7 @@ jobs:
       - name: 'Cache dependencies'
         uses: actions/cache@v3
         with:
-          path: |
-            **/node_modules
-            /home/ubuntu/.cache/ms-playwright
+          path: '**/node_modules'
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: 'Install dependencies'
