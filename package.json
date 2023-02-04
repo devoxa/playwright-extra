@@ -38,7 +38,7 @@
     "@devoxa/eslint-config": "3.0.7",
     "@devoxa/prettier-config": "2.0.1",
     "@playwright/test": "1.30.0",
-    "@types/express": "4.17.16",
+    "@types/express": "4.17.17",
     "@types/node": "18.11.18",
     "axe-playwright": "1.1.12",
     "eslint": "8.33.0",
