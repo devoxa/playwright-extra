@@ -1,6 +1,6 @@
 import { randomString } from '@devoxa/flocky'
 import { expect, test } from '@playwright/test'
-import { exportPerformanceMetrics, jsonLinesParse, PerformanceMetrics } from '../src/index'
+import { PerformanceMetrics, exportPerformanceMetrics, jsonLinesParse } from '../src/index'
 
 test.describe('exportPerformanceMetrics', () => {
   test('exports performance metrics', async ({ page, browserName }) => {
