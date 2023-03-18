@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { InvalidArgumentError, program } from 'commander'
-import { jsonLinesParse, PerformanceMetrics, testPerformanceMetrics } from '../index'
+import { PerformanceMetrics, jsonLinesParse, testPerformanceMetrics } from '../index'
 
 program
   .requiredOption(
