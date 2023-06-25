@@ -25,4 +25,18 @@ test.describe('matchers', () => {
     await expect(page).not.toHaveURL($contains(`/goodbye-world.html?foo=bar`))
     await expect(page).not.toHaveURL($endsWith(`?baz=boz&foo=bar`))
   })
+
+  test('successful with dynamic segments', async ({ page }) => {
+    await page.goto('/de54bb36-b1c1-4028-8cbe-57fa24f99622/edit.html?foo=bar&baz=boz')
+
+    const dynamicSegments = { uuid: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}' }
+
+    await expect(page).toHaveURL($startsWith(`http://localhost:3000/:uuid`, dynamicSegments))
+    await expect(page).toHaveURL($contains(`/:uuid/edit.html`, dynamicSegments))
+    await expect(page).toHaveURL($endsWith(`/:uuid/edit.html?foo=bar&baz=boz`, dynamicSegments))
+
+    await expect(page).not.toHaveURL($startsWith(`http://localhost:3001/:uuid`, dynamicSegments))
+    await expect(page).not.toHaveURL($contains(`/:uuid/delete.html`, dynamicSegments))
+    await expect(page).not.toHaveURL($endsWith(`/:uuid/edit.html?foo=bar`, dynamicSegments))
+  })
 })

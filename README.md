@@ -127,21 +127,33 @@ Remove a local storage item.
 
 ```ts
 await expect(page).toHaveURL($startsWith(value))
+
+const dynamicSegments = { id: '[0-9]+' }
+await expect(page).toHaveURL($startsWith('/:id/edit', dynamicSegments))
 ```
 
-Create a RegExp that starts with the value.
+Create a RegExp that starts with the value, with optional `dynamicSegments` replaced with their
+respective regular expressions.
 
 ```ts
 await expect(page).toHaveURL($contains(value))
+
+const dynamicSegments = { id: '[0-9]+' }
+await expect(page).toHaveURL($contains('/:id/edit', dynamicSegments))
 ```
 
-Create a RegExp that contains the value.
+Create a RegExp that contains the value, with optional `dynamicSegments` replaced with their
+respective regular expressions.
 
 ```ts
 await expect(page).toHaveURL($endsWith(value))
+
+const dynamicSegments = { id: '[0-9]+' }
+await expect(page).toHaveURL($endsWith('/:id/edit', dynamicSegments))
 ```
 
-Create a RegExp that ends with the value.
+Create a RegExp that ends with the value, with optional `dynamicSegments` replaced with their
+respective regular expressions.
 
 ### Performance Metrics
 
