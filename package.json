@@ -1,7 +1,7 @@
 {
   "name": "@devoxa/playwright-extra",
   "description": "Extra utility functions for interacting with Playwright",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "dist/src/index.js",
   "bin": {
     "test-performance-metrics": "./dist/src/cli/test-performance-metrics.js"
