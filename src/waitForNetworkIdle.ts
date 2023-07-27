@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test'
+import { Page, Request } from '@playwright/test'
 
 interface WaitForNetworkIdleOptions {
   timeout?: number
@@ -43,7 +43,7 @@ export function waitForNetworkIdle(page: Page, pOptions?: WaitForNetworkIdleOpti
       return Object.entries(inFlightRequestsMap).filter(([, value]) => value > 0)
     }
 
-    page.on('request', (request) => {
+    function onRequest(request: Request) {
       if (isSettled) return
 
       const url = request.url()
@@ -51,19 +51,23 @@ export function waitForNetworkIdle(page: Page, pOptions?: WaitForNetworkIdleOpti
       inFlightRequestsMap[url] = (inFlightRequestsMap[url] || 0) + 1
 
       clearTimeout(resolveTimeout)
-    })
+    }
 
-    page.on('response', (response) => {
+    function onResponse(request: Request) {
       if (isSettled) return
 
-      const url = response.url()
+      const url = request.url()
       debug(`<< ${url}`)
       inFlightRequestsMap[url] = (inFlightRequestsMap[url] || 1) - 1
 
       if (getInFlightRequests().length === 0) {
         resolveTimeout = setTimeout(resolve, pOptions?.minIdleTime || 200)
       }
-    })
+    }
+
+    page.on('request', onRequest) // Emitted when a request is issued.
+    page.on('requestfailed', onResponse) // Emitted when a request fails, for example by timing out.
+    page.on('requestfinished', onResponse) // Emitted when a request finishes, after downloading the response body.
   })
 }
 
