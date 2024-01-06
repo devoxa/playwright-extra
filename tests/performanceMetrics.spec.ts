@@ -3,8 +3,7 @@ import { expect, test } from '@playwright/test'
 import { PerformanceMetrics, exportPerformanceMetrics, jsonLinesParse } from '../src/index'
 
 test.describe('exportPerformanceMetrics', () => {
-  test('exports performance metrics', async ({ page, browserName }) => {
-    test.fail(browserName === 'webkit', 'Performance metrics are not supported in Webkit')
+  test('exports performance metrics', async ({ page }) => {
     const FILE_NAME = `test-tmp/performance-metrics-${randomString(6)}.jsonl`
 
     await page.goto('/hello-world.html')
