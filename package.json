@@ -27,7 +27,7 @@
   },
   "prettier": "@devoxa/prettier-config",
   "dependencies": {
-    "@devoxa/flocky": "2.0.0",
+    "@devoxa/flocky": "2.1.1",
     "commander": "11.0.0"
   },
   "peerDependencies": {
