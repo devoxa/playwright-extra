@@ -6,10 +6,19 @@ interface WaitForNetworkIdleOptions {
   debug?: boolean
 }
 
+/** Global default options for all `*waitForNetworkIdle` functions. */
+export const WaitForNetworkIdleDefaultOptions: Required<WaitForNetworkIdleOptions> = {
+  timeout: 10000,
+  minIdleTime: 200,
+  debug: false,
+}
+
 /** Wait for all network requests to be settled before resolving. */
 export function waitForNetworkIdle(page: Page, pOptions?: WaitForNetworkIdleOptions) {
+  const options = { ...WaitForNetworkIdleDefaultOptions, ...pOptions }
+
   function debug(message: string) {
-    if (!pOptions?.debug) return
+    if (!options.debug) return
     console.log(`[waitForNetworkIdle] ${message}`)
   }
 
@@ -17,7 +26,7 @@ export function waitForNetworkIdle(page: Page, pOptions?: WaitForNetworkIdleOpti
     let isSettled = false
     const inFlightRequestsMap: Record<string, number> = {}
     let resolveTimeout: NodeJS.Timeout | undefined = undefined
-    const rejectTimeout = setTimeout(reject, pOptions?.timeout || 10000)
+    const rejectTimeout = setTimeout(reject, options.timeout)
 
     function resolve() {
       clearTimeout(rejectTimeout)
@@ -61,7 +70,7 @@ export function waitForNetworkIdle(page: Page, pOptions?: WaitForNetworkIdleOpti
       inFlightRequestsMap[url] = (inFlightRequestsMap[url] || 1) - 1
 
       if (getInFlightRequests().length === 0) {
-        resolveTimeout = setTimeout(resolve, pOptions?.minIdleTime || 200)
+        resolveTimeout = setTimeout(resolve, options.minIdleTime)
       }
     }
 

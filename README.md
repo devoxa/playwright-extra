@@ -207,6 +207,12 @@ await reloadAndWaitForNetworkIdle(page, url, options?)
 
 Reload the page and wait for all network requests to be settled.
 
+```ts
+WaitForNetworkIdleDefaultOptions.minIdleTime = 500
+```
+
+Set the global default options for all `*waitForNetworkIdle` functions.
+
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
