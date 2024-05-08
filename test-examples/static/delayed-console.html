@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <script>
+      function sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms))
+      }
+
+      async function main() {
+        console.log('0')
+
+        await sleep(500)
+
+        console.log('1')
+        console.warn('2')
+        console.error('3')
+        console.debug('4', { foo: { bar: 'baz', boz: 12 } })
+
+        document.body.innerHTML = '<h1>Done</h1>'
+      }
+
+      main()
+    </script>
+  </body>
+</html>
