@@ -7,10 +7,14 @@
       }
 
       async function main() {
-        for (let i = 0; i !== 10; i++) {
-          await fetch('/api/fast')
-          await sleep(350)
-        }
+        console.log('0')
+
+        await sleep(500)
+
+        console.log('1')
+        console.warn('2')
+        console.error('3')
+        console.debug('4', { foo: { bar: 'baz', boz: 12 } })
 
         document.body.innerHTML = '<h1>Done</h1>'
       }

@@ -120,6 +120,17 @@ await removeLocalStorageItem(page, key)
 
 Remove a local storage item.
 
+### Console Messages
+
+```ts
+const getConsoleMessages = captureConsoleMessages(page)
+// ... do things here ...
+expect(getConsoleMessages()).toEqual([])
+expect(getConsoleMessages(['warning', 'error'])).toEqual([])
+```
+
+Capture the console messages of the page for later assertions.
+
 ### Matchers
 
 > **Note:** These functions escape special regular expression characters, so they are safe to use
@@ -212,6 +223,9 @@ WaitForNetworkIdleDefaultOptions.minIdleTime = 500
 ```
 
 Set the global default options for all `*waitForNetworkIdle` functions.
+
+Keep in mind that test files run independently from the setup, so you have to call this in a helper,
+that is imported into all test files.
 
 ## Contributors
 
