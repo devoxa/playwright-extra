@@ -43,7 +43,7 @@
     "axe-playwright": "2.0.3",
     "eslint": "8.57.1",
     "express": "4.21.1",
-    "prettier": "3.3.3",
+    "prettier": "3.4.0",
     "ts-node": "10.9.2",
     "typescript": "5.7.2"
   },
