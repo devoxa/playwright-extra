@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 
 /** Append a line to a file in JSON Lines format. */
-export async function jsonLinesAppend(filePath: string, line: unknown) {
+export async function jsonLinesAppend(filePath: string, line: unknown): Promise<void> {
   await fs.appendFile(filePath, JSON.stringify(line) + '\n', 'utf-8')
 }
 
@@ -12,5 +12,5 @@ export async function jsonLinesParse<T = unknown>(filePath: string): Promise<Arr
   return file
     .split('\n')
     .slice(0, -1) // Remove the last newline
-    .map((line) => JSON.parse(line))
+    .map((line) => JSON.parse(line) as T)
 }

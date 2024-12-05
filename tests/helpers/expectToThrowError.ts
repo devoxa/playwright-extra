@@ -1,6 +1,9 @@
 import { expect } from '@playwright/test'
 
-export async function expectToThrowError(callback: () => Promise<unknown>, message: string) {
+export async function expectToThrowError(
+  callback: () => Promise<unknown>,
+  message: string
+): Promise<void> {
   let error
 
   try {

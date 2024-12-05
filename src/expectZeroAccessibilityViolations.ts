@@ -4,7 +4,10 @@ import { configureAxe, getAxeResults, injectAxe } from 'axe-playwright'
 type ConfigOptions = Parameters<typeof configureAxe>[1]
 
 /** Expect that there are no accessibility violations. */
-export async function expectZeroAccessibilityViolations(page: Page, config?: ConfigOptions) {
+export async function expectZeroAccessibilityViolations(
+  page: Page,
+  config?: ConfigOptions
+): Promise<void> {
   if (process.env.DISABLE_ACCESSIBILITY_TESTS === 'true') return
 
   await injectAxe(page)

@@ -14,10 +14,13 @@ export const WaitForNetworkIdleDefaultOptions: Required<WaitForNetworkIdleOption
 }
 
 /** Wait for all network requests to be settled before resolving. */
-export function waitForNetworkIdle(page: Page, pOptions?: WaitForNetworkIdleOptions) {
+export function waitForNetworkIdle(
+  page: Page,
+  pOptions?: WaitForNetworkIdleOptions
+): Promise<void> {
   const options = { ...WaitForNetworkIdleDefaultOptions, ...pOptions }
 
-  function debug(message: string) {
+  function debug(message: string): void {
     if (!options.debug) return
     console.log(`[waitForNetworkIdle] ${message}`)
   }
@@ -28,7 +31,7 @@ export function waitForNetworkIdle(page: Page, pOptions?: WaitForNetworkIdleOpti
     let resolveTimeout: NodeJS.Timeout | undefined = undefined
     const rejectTimeout = setTimeout(reject, options.timeout)
 
-    function resolve() {
+    function resolve(): void {
       clearTimeout(rejectTimeout)
       debug('Idle')
 
@@ -36,7 +39,7 @@ export function waitForNetworkIdle(page: Page, pOptions?: WaitForNetworkIdleOpti
       isSettled = true
     }
 
-    function reject() {
+    function reject(): void {
       clearTimeout(resolveTimeout)
       debug('Timeout')
 
@@ -48,11 +51,11 @@ export function waitForNetworkIdle(page: Page, pOptions?: WaitForNetworkIdleOpti
       isSettled = true
     }
 
-    function getInFlightRequests() {
+    function getInFlightRequests(): Array<[string, number]> {
       return Object.entries(inFlightRequestsMap).filter(([, value]) => value > 0)
     }
 
-    function onRequest(request: Request) {
+    function onRequest(request: Request): void {
       if (isSettled) return
 
       const url = request.url()
@@ -62,7 +65,7 @@ export function waitForNetworkIdle(page: Page, pOptions?: WaitForNetworkIdleOpti
       clearTimeout(resolveTimeout)
     }
 
-    function onResponse(request: Request) {
+    function onResponse(request: Request): void {
       if (isSettled) return
 
       const url = request.url()
@@ -85,7 +88,7 @@ export async function gotoAndWaitForNetworkIdle(
   page: Page,
   url: string,
   pOptions?: WaitForNetworkIdleOptions
-) {
+): Promise<void> {
   const waitForNetworkIdlePromise = waitForNetworkIdle(page, pOptions)
   await page.goto(url)
   await waitForNetworkIdlePromise
@@ -95,7 +98,7 @@ export async function gotoAndWaitForNetworkIdle(
 export async function reloadAndWaitForNetworkIdle(
   page: Page,
   pOptions?: WaitForNetworkIdleOptions
-) {
+): Promise<void> {
   const waitForNetworkIdlePromise = waitForNetworkIdle(page, pOptions)
   await page.reload()
   await waitForNetworkIdlePromise
