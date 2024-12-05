@@ -12,10 +12,12 @@ export interface CapturedConsoleMessage {
 }
 
 /** Capture the console messages of the page for later assertions. */
-export function captureConsoleMessages(page: Page) {
+export function captureConsoleMessages(
+  page: Page
+): (types?: Array<CapturedConsoleMessageType>) => Array<CapturedConsoleMessage> {
   const messages: Array<CapturedConsoleMessage> = []
 
-  async function onConsole(message: ConsoleMessage) {
+  async function onConsole(message: ConsoleMessage): Promise<void> {
     const type = message.type() as CapturedConsoleMessageType
     if (!CAPTURED_TYPES.includes(type)) return
 
@@ -29,7 +31,7 @@ export function captureConsoleMessages(page: Page) {
 
   page.on('console', onConsole)
 
-  return (types?: Array<CapturedConsoleMessageType>) => {
+  return (types?: Array<CapturedConsoleMessageType>): Array<CapturedConsoleMessage> => {
     if (!types) return messages
     return messages.filter((message) => types.includes(message.type))
   }

@@ -26,7 +26,7 @@ export async function exportPerformanceMetrics(
   page: Page,
   label: string,
   pOptions?: ExportPerformanceMetricsOptions
-) {
+): Promise<void> {
   const options = { filePath: 'performance-metrics.jsonl', ...pOptions }
 
   const performanceEntries = await page.evaluate(evaluate_getPerformanceEntries)
@@ -65,8 +65,8 @@ export interface TestPerformanceMetricsOptions {
 export function testPerformanceMetrics(
   metrics: Array<PerformanceMetrics>,
   options: TestPerformanceMetricsOptions
-) {
-  function buildError(type: string, label: string, max: number, actual: number) {
+): void {
+  function buildError(type: string, label: string, max: number, actual: number): string {
     return `${label}: ${type} is above allowed maximum (${actual.toLocaleString()} > ${max.toLocaleString()})`
   }
 
@@ -114,7 +114,7 @@ export function testPerformanceMetrics(
   }
 
   if (errors.length > 0) {
-    const errorString = errors.map((error) => `- ${error}`).join(`\n`)
+    const errorString = errors.map((error) => `- ${error}`).join('\n')
 
     console.log()
     console.log('Performance metrics are not within allowed boundaries\n')

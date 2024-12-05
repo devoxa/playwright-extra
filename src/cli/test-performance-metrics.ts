@@ -26,15 +26,15 @@ program
 
 void run()
 
-async function run() {
+async function run(): Promise<void> {
   program.parse()
   const options = program.opts()
 
-  const jsonl = await jsonLinesParse<PerformanceMetrics>(options.filePath)
+  const jsonl = await jsonLinesParse<PerformanceMetrics>(options.filePath as string)
   testPerformanceMetrics(jsonl, options)
 }
 
-function enforceInteger(value: string) {
+function enforceInteger(value: string): number {
   const integer = parseInt(value, 10)
 
   if (isNaN(integer)) {
