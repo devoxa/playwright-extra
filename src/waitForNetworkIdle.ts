@@ -14,7 +14,10 @@ export const WaitForNetworkIdleDefaultOptions: Required<WaitForNetworkIdleOption
 }
 
 /** Wait for all network requests to be settled before resolving. */
-export function waitForNetworkIdle(page: Page, pOptions?: WaitForNetworkIdleOptions): Promise<void> {
+export function waitForNetworkIdle(
+  page: Page,
+  pOptions?: WaitForNetworkIdleOptions
+): Promise<void> {
   const options = { ...WaitForNetworkIdleDefaultOptions, ...pOptions }
 
   function debug(message: string): void {
