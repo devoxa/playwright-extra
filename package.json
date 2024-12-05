@@ -27,7 +27,7 @@
   },
   "prettier": "@devoxa/prettier-config",
   "dependencies": {
-    "@devoxa/flocky": "2.2.0",
+    "@devoxa/flocky": "3.0.0",
     "commander": "12.1.0"
   },
   "peerDependencies": {
@@ -43,7 +43,7 @@
     "axe-playwright": "2.0.3",
     "eslint": "8.57.1",
     "express": "4.21.1",
-    "prettier": "3.4.1",
+    "prettier": "3.4.2",
     "ts-node": "10.9.2",
     "typescript": "5.7.2"
   },
