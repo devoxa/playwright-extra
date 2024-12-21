@@ -5,7 +5,7 @@
 
 <!-- Description -->
 <h4 align="center">
-  Extra utility functions for interacting with Playwright.
+  Extra utility functions for interacting with Playwright
 </h4>
 
 <!-- Badges -->
