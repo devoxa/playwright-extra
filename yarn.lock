@@ -26,10 +26,10 @@
     parse-gitignore "2.0.0"
     typescript-eslint "8.18.1"
 
-"@devoxa/flocky@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@devoxa/flocky/-/flocky-3.0.0.tgz#96772e725d2a05c2a2ab0a1f1d06088feedac5f5"
-  integrity sha512-xENDQJOW0gXAycXc2Nx9JoXwiBrRWg4rv9DrAP92ODOZSZx05KEESEkKNeXIULaP3fI4ANmuG/LhkdvMalxhXA==
+"@devoxa/flocky@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@devoxa/flocky/-/flocky-3.1.0.tgz#780b74304773b31204774654f2ed33199c87f0e1"
+  integrity sha512-RD+ulQMgg+lE6PsTAMqW0rvsFqwba5SZLocyudSKFAg5TuDQM0Nk5odGRLmmw4iYLvjju/jhX7cF2bJI6/OiWQ==
 
 "@devoxa/prettier-config@2.0.3":
   version "2.0.3"
