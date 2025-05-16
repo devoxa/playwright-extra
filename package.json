@@ -38,7 +38,7 @@
     "@types/express": "4.17.21",
     "@types/node": "20.9.5",
     "axe-playwright": "2.1.0",
-    "eslint": "9.26.0",
+    "eslint": "9.27.0",
     "express": "4.21.2",
     "prettier": "3.5.3",
     "ts-node": "10.9.2",
