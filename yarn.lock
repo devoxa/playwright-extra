@@ -593,10 +593,10 @@ axe-html-reporter@2.2.11:
   dependencies:
     mustache "^4.0.1"
 
-axe-playwright@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/axe-playwright/-/axe-playwright-2.1.0.tgz#1391d65acc72c79ca9268d15ccecce095df376bb"
-  integrity sha512-tY48SX56XaAp16oHPyD4DXpybz8Jxdz9P7exTjF/4AV70EGUavk+1fUPWirM0OYBR+YyDx6hUeDvuHVA6fB9YA==
+axe-playwright@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/axe-playwright/-/axe-playwright-2.2.0.tgz#328f40b12fee365c116819db6137801894e6a929"
+  integrity sha512-cNjwKgeMi1/Ncw0i7986e7bangK06eIKS4J6iXktzqXy262MO5aVfVwLo/e36S2hIBvL62C5GPzjCZYmKfda6g==
   dependencies:
     "@types/junit-report-builder" "^3.0.2"
     axe-core "^4.10.1"
