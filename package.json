@@ -34,7 +34,7 @@
   "devDependencies": {
     "@devoxa/eslint-config": "4.0.2",
     "@devoxa/prettier-config": "2.0.3",
-    "@playwright/test": "1.57.0",
+    "@playwright/test": "1.58.0",
     "@types/express": "4.17.25",
     "@types/node": "20.9.5",
     "axe-playwright": "2.2.2",
