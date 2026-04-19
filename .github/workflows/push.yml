@@ -18,15 +18,15 @@ jobs:
 
     steps:
       - name: 'Checkout the repository'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.3.1
 
       - name: 'Setup Node.JS'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.4.0
         with:
           node-version: '20.20.2'
 
       - name: 'Cache dependencies'
-        uses: buildjet/cache@v4
+        uses: buildjet/cache@v4.0.2
         with:
           path: |
             **/node_modules
